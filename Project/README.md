@@ -2,8 +2,9 @@
 
 # mike note
 
-Add data from users table in prod database for embedding. Upload into 'data/users/'
-Use this SQL
+Add data from users table in prod database for embedding. Export result as CSV, then upload into 'data/users/'.
+
+Use this SQL to get the data to export.
 
 ```
 SELECT
