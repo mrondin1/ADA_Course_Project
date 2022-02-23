@@ -4,7 +4,7 @@
 
 Add data from users table in prod database for embedding. Export result as CSV, then upload into 'data/users/'.
 
-Use this SQL to get the data to export.
+Use this SQL to get the data to export. Manually change curly brackets to square, manually remove all quotation marks, handle in code later.
 
 ```
 SELECT
