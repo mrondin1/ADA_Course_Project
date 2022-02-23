@@ -6,10 +6,11 @@ Add data from users table in prod database for embedding. Export result as CSV, 
 
 Manually change curly brackets to square, handle in code later.
 
-Ingredients should look like:
+Data should look like:
 
 ```
-"[NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,""Chilled White Asparagus"",""Chilled White Asparagus"",""Chilled White Asparagus"",""Chilled White Asparagus"",Avocado,Cilantro,Strawberries,""Roasted Chicken With Farro"",""Roasted Chicken With Farro"",""Roasted Chicken With Farro"",""Roasted Chicken With Farro"",""Roasted Chicken With Farro"",""Rigatoni With Braised Lamb"",""Rigatoni With Braised Lamb"",""Rigatoni With Braised Lamb"",""Rigatoni With Braised Lamb"",""Rigatoni With Braised Lamb"",""White Truffle Dressing"",""Celery Leaf"",""White Asparagus"",""Manchego Cheese"",Avocado,Cilantro,Strawberries,Herbs,""Parsnip Mousseline"",Farro,""Garlic Chive"",Chicken,Shallot,Rigatoni,Herbs,""Parmesan Cheese"",Lamb]"
+user_id,user_name,ingredients
+388,Apple John,"{""Baby Radish"",""Black Garlic"",Cauliflower,""Cauliflower Steak"",Chicken,""Dover Sole"",""Fingerling Potato"",""Fuji Apple Relish"",""Garlic Chive"",Herbs,Lamb,Oregano,""Parmesan Cheese"",""Parsnip Mousseline"",Rigatoni,""Rigatoni With Braised Lamb"",""Roasted Chicken"",""Sautéed Dover Sole With Fuji Apple Relish"",Shallot,""Toasted Almonds""}"
 ```
 
 Use this SQL to get the data to export.
