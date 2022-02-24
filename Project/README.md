@@ -4,28 +4,19 @@
 
 Add data from users table in prod database for embedding. Export result as CSV, then upload into 'data/users/'.
 
-Manually change curly brackets to square, handle in code later.
-
-Data should look like:
-
-```
-user_id,user_name,ingredients
-388,Apple John,"{""Baby Radish"",""Black Garlic"",Cauliflower,""Cauliflower Steak"",Chicken,""Dover Sole"",""Fingerling Potato"",""Fuji Apple Relish"",""Garlic Chive"",Herbs,Lamb,Oregano,""Parmesan Cheese"",""Parsnip Mousseline"",Rigatoni,""Rigatoni With Braised Lamb"",""Roasted Chicken"",""Sautéed Dover Sole With Fuji Apple Relish"",Shallot,""Toasted Almonds""}"
-```
-
 Use this SQL to get the data to export.
 
 ```
 -- For embedding the users into our ingredient-based embedding space for new meal recs
 -- Rough, can improve data cleanliness in future
-
 -- Dedupped, single array, and grabbing from all possible swipes (ingredients or meals --> ingredients)
+
 SELECT
 	user_id,
 	user_name,
 	( -- deduplicate wrapper
 		SELECT
-			array_agg(DISTINCT val) AS ingredients
+			json_agg(DISTINCT lower(val)) AS ingredients
 		FROM (
 			SELECT
 				unnest(ingredients) AS val) AS u)
@@ -65,6 +56,14 @@ SELECT
 			ingredients_array,
 			meals_array,
 			meal_ingredients_array) x;
+```
+
+Manual fix output in text editor (FUTURE - fix with manual cleaning step in pipeline in n8n or node red using pure javascript, or use psql or /pset to set unaligned output format to avoid "" around ingredient array). Find and replace all in output file:
+
+```
+"[\" --> ["
+\"]" --> "]
+\" --> "
 ```
 
 ## Blog article
