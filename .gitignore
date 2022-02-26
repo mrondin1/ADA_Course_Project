@@ -1,5 +1,7 @@
 venv
 Project/data
+test_df_exports
+test_embedding_plot_exports
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
